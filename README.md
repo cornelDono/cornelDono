@@ -1,0 +1,4 @@
+- 👋 Hi, I’m Strenkovsky Andrew
+- 👀 I’m interested in BI Analytics
+- 🌱 I’m currently learning everything that have something in common with BI/ ETL/ DWH
+- 📫 You can contact me via email strenkovsky@gmail.com or tg @cornelia1dono
