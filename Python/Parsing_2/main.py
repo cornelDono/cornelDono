@@ -13,14 +13,12 @@ headers = {
 def get_url(url):
     s = requests.Session()
     response = s.get(url=url, headers=headers)
-
     with open('index.html', 'w', encoding="utf-8") as file:
         file.write(response.text)
 
 def get_json(url):
     s = requests.Session()
     response = s.get(url=url, headers=headers)
-
     with open('result.json', 'w', encoding="utf-8") as file:
        json.dump(response.json(), file, indent=4, ensure_ascii=False)
 
