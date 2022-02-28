@@ -17,26 +17,20 @@ headers = {
 def get_articles_urls(url):
     s = requests.Session
     response = get(url=url, headers=headers)
-
     #with open('index.html', 'w', encoding="utf-8") as file:
     #    file.write(response.text)
     articles_url_list = []
-
     soup = BeautifulSoup(response.text, 'lxml')
     last_page = int(soup.find('span', class_='navigations').find_all('a')[-1].text)
-
     for page in range(1, last_page + 1):
         response = get(url=f'https://hi-tech.news/comp/page/{page}/', headers=headers)
         soup = BeautifulSoup(response.text, 'lxml')
-        
         articles_url = soup.find_all('a', class_='post-title-a')
-
         for au in articles_url:
             art_aur = au.get('href')
             articles_url_list.append(art_aur)
         #time.sleep(randrange(2,5))
         print(f'Обработал {page}/{last_page}')
-    
     with open('articles_url.txt', 'w') as file:
         for url in articles_url_list:
             file.write(f'{url}\n')
@@ -47,17 +41,12 @@ def get_data(file_path):
         urls_list = [line.strip() for line in file.readlines()]
 
     s = requests.Session
-
     url_count = len(urls_list)
-    
     result_data = []
     count = 0
-
     for url in enumerate(urls_list):
-
         response = get(url=url[1], headers=headers)
         soup = BeautifulSoup(response.text, 'lxml')
-
         article_title = soup.find('h1', class_='title').text.strip()
         article_date = soup.find('div', class_='post').find('div', class_='tile-views', title='Дата публикации').text.strip()
         article_img = f"https://hi-tech.news{soup.find('div', class_='post-media-full').find('img').get('src')}"
@@ -73,12 +62,8 @@ def get_data(file_path):
             }
         )
 
-
         print(f'Обработал: {url[0]}')
-
         urllib.request.urlretrieve( article_img , f'picture/Статья {url[0]}.jpg')
-
-
         with open('result.json', 'w', encoding="utf-8") as file:
             json.dump(result_data, file, indent=4, ensure_ascii=False)
         
