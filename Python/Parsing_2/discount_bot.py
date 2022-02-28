@@ -9,7 +9,7 @@ import os
 import aiogram
 
 
-bot = Bot(token='5076755190:AAFeeLn8DsfxUoXVLw4bGhJ5A6UGKXm94b4', parse_mode=types.ParseMode.HTML)
+bot = Bot(token='**********************', parse_mode=types.ParseMode.HTML)
 dp = Dispatcher(bot)
 
 @dp.message_handler(commands='start')
