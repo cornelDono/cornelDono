@@ -83,7 +83,7 @@ def spotify_etl_func():
         albume_frame = pd.DataFrame(album_list, columns=['album_id','album_name','album_release_date','album_total_tracks','album_url'])
         history_song_frame = pd.DataFrame(song_list, columns=['artist_id', 'artist_name', 'song_name', 'song_popularity', 'song_url', 'duration_ms','played_at'])
         artist_frame = pd.DataFrame(artist_list, columns=['artist_id', 'artist_name', 'artist_link'])
-        # last_song_frame = pd.DataFrame(last_song_sql)
+        last_song_frame = pd.DataFrame(last_song_sql)
 
         albume_frame = albume_frame.drop_duplicates(subset=['album_id'])
         artist_frame = artist_frame.drop_duplicates(subset=['artist_id'])
@@ -133,14 +133,14 @@ def spotify_etl_func():
         )
         connection.commit()
         
-        # cur_eng.execute(
-        #         """
-        #         CREATE TEMP TABLE IF NOT EXISTS tmp_song_history AS SELECT * FROM spotify.song_history LIMIT 0
-        #         """)
+        cur_eng.execute(
+                """
+                CREATE TEMP TABLE IF NOT EXISTS tmp_song_history AS SELECT * FROM spotify.song_history LIMIT 0
+                """)
 
-        # history_song_frame.to_sql('song_history', con = engine, if_exists = 'append', index = False, schema = 'spotify')
+        history_song_frame.to_sql('song_history', con = engine, if_exists = 'append', index = False, schema = 'spotify')
 
-        # last_song_frame.to_sql('index', con = engine, if_exists = 'replace', index = False, schema = 'spotify')
+        last_song_frame.to_sql('index', con = engine, if_exists = 'replace', index = False, schema = 'spotify')
         return "Finished loading song"
 
 def main():
