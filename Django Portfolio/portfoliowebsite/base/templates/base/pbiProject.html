@@ -1,0 +1,14 @@
+{% extends 'base/main.html' %}
+{% load static %}
+{% block content %}
+<form method="post", name="#">
+    {% csrf_token %}
+    <h1> PBI project </h1>
+    <button type="submit", name="refresh", value="refresh" class="btn btn-success">Refresh</button>
+
+    {% for article in pbi_articles %}
+    <h5>{{article.Article_title}}</h5>
+    {% endfor %}
+
+</form>
+{% endblock content %}

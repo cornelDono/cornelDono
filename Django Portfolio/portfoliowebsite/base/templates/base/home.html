@@ -1,0 +1,76 @@
+{% extends 'base/main.html' %}
+{% load static %}
+{% block content %}
+    
+
+    <section class="hero">
+        <div class="hero--content">
+            <div class="hero--content--intro">
+                <img id='profile-pic' src='{% static 'images/logo.png' %}'>
+                <h1 class="intro--name">Strenkovsky<br>Andrew</h1>
+            </div>
+            <div class="hero--content--subhead">
+                <h3 class="description">
+                    Something Developer
+                </h3>
+                <p class="slogan">
+                    Can`t even develop my life
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="container section--projects">
+        <h3>My Projects</h3>
+        <h5>Project that make my life worthwhile</h5>
+        <div class="project--wrapper">
+            {% for project in projects %}
+                <div class="project--column">
+                    <a href="{% url 'project' project.id %}">
+                        <img id='project-pic' class='project--img' src='{{project.thumbnail.url}}'>
+                    </a>
+                        <div class="project--body">
+                            <h5>{{project.title}}</h5>
+                        </div>
+                </div>
+            {% empty %}
+                <h5>There are no projects</h5>
+            {% endfor %}
+        </div>
+
+        <div class="about--wrapper">
+            <h3>More About Me</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In vestibulum nisi vel ante pulvinar tincidunt. Praesent blandit varius neque non ultrices. Integer justo velit, viverra id sem vel, cursus auctor nisl. Curabitur tempor leo turpis, sed pretium nisl dictum laoreet. Maecenas sed justo a lectus vehicula mattis. Sed quis vestibulum sapien. Vestibulum at porttitor ligula. Aliquam ex velit, placerat sed tempor vel, feugiat ac quam. Cras tempus risus et ex finibus venenatis. Aliquam pellentesque lorem ipsum, at vulputate turpis ultricies vel. Nunc faucibus velit turpis, a sodales risus eleifend eget.</p>
+            <p>Morbi fringilla iaculis diam in tempor. Curabitur in quam pellentesque, vestibulum eros placerat, commodo risus. Nunc et leo vitae ligula iaculis lacinia eu sed quam. Ut quis justo sagittis, faucibus risus nec, tincidunt nunc. Curabitur blandit rhoncus ante vel gravida. Sed consectetur vestibulum urna, venenatis ultricies est bibendum vel. Integer vel consectetur ex. Suspendisse potenti.</p>
+        </div>
+
+    </section>
+
+    <section class="section--skills">
+        <div class="container skills--container">
+
+            <h3>Main Skills</h3>
+            {% for  d_skill in detailed_skills %}
+                <div class="skills--wrapper">
+                    <h5>{{d_skill.title}}</h5>
+                    <p>{{d_skill.body}}</p>
+                </div>
+            {% endfor %}
+            <h4>Other Skills</h4>
+                <div class="other-skills--wrapper">
+                    {% for skill in skills  %}
+                        <div class="skill--tag">
+                            <span>{{skill.title}}</span>
+                        </div>
+                    {% endfor %}
+                </div>
+
+
+        </div>
+
+        
+    </section>
+{% endblock content %}
+
+
+    

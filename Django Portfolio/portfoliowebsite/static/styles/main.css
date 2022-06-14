@@ -1,0 +1,188 @@
+body{
+    background-color: #E5E5E5;
+}
+
+.section--skills{
+    background-color: #ffff;
+    padding-top: 2em;
+    padding-bottom: 2em;
+}
+
+.section--projects{
+    padding-top: 2em;
+    padding-bottom: 2em;
+}
+
+.navigation-bar{
+    background-color: #354955;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+}
+
+.nav-link{
+    color: #ffff;
+}
+
+.hero{
+    background-color: #1F2428;
+    min-height: 50vh;
+    color: #ffff;
+}
+
+.hero--content{
+    width: 800px;
+    margin: 0 auto;
+    padding-top: 3em;
+}
+
+.hero--content--intro{
+    display: flex;
+    color: #ffff;
+    align-items: center;
+    gap: 1em;
+    justify-content: center;
+    margin-bottom: 1em;
+}
+
+.intro--name{
+    font-size: 100px;
+    font-weight: 600;
+}
+
+.description{
+    font-size: 65px;
+    text-align: left;
+}
+
+.slogan{
+    font-size: 25px;
+    text-align: left;
+}
+
+#profile-pic{
+    height: 220px;
+    width: 220px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+/* #project-pic{
+    height: 200px;
+    width: 200px;
+    object-fit: cover;
+} */
+
+.project--wrapper{
+    display: grid;
+    gap: 2em;
+    margin-top: 2em;
+    margin-bottom: 2em;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.project--img{
+    width: 100%;
+}
+
+.project--body{
+    background-color: #ffff;
+    padding: 1em;
+}
+
+.skills--container{
+    width: 900px;
+    margin: 0 auto;
+}
+
+.skill--wrapper{
+    margin-top: 2em;
+    margin-bottom: 2em;
+}
+
+.skill--tag{
+    background-color: #C4E7F2;
+    width: fit-content;
+    padding: 5px 20px;
+    border-radius: 20px;
+}
+
+.other-skills--wrapper{
+    display: flex;
+    gap: 1em;
+}
+
+.skills--wrapper{
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+
+.project--image{
+    max-width: 800px;
+}
+
+@media (max-width:900px){
+
+    .skills--container{
+        width: 100%;
+    }
+
+    .hero--content{
+        width: 100%;
+        padding-top: 3em;
+    }
+
+    .hero--content--intro{
+        flex-direction: column;
+    }
+
+    .project--wrapper{
+        display: flex;
+        flex-direction: row;
+        grid-template-rows: 1fr 1fr 1fr;
+    }
+
+    .intro--name{
+        font-size: 80px;
+        font-weight: 600;
+        text-align: center;
+    }
+
+    .description{
+        font-size: 50px;
+        text-align: center;
+    }
+
+    .slogan{
+        font-size: 25px;
+        text-align: center;
+    }
+}
+
+@media (max-width:600px){
+    .skills--container{
+        width: 100%;
+    }
+
+    .hero--content{
+        width: 100%;
+        padding-top: 3em;
+    }
+
+
+    .project--wrapper{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .description{
+        font-size: 50px;
+        text-align: center;
+    }
+
+    .slogan{
+        font-size: 25px;
+        text-align: center;
+    }
+}
