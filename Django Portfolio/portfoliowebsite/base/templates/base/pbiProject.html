@@ -1,3 +1,4 @@
+
 {% extends 'base/main.html' %}
 {% load static %}
 {% block content %}
@@ -6,9 +7,16 @@
     <h1> PBI project </h1>
     <button type="submit", name="refresh", value="refresh" class="btn btn-success">Refresh</button>
 
+<div class="list-group mx-auto" style="width: 65%;">
     {% for article in pbi_articles %}
-    <h5>{{article.Article_title}}</h5>
+    <a href="https://powerbi.microsoft.com{{article.Article_post_link}}" class="list-group-item list-group-item-action flex-column align-items-start" style="margin-top: 10px;">
+        <div class="d-flex w-100 justify-content-between">
+          <h5 class="mb-1" style="color : black">{{article.Article_title}}</h5>
+          <small>{{article.Article_date}}</small>
+        </div>
+        <p class="mb-1">{{article.Article_short_text}}</p>
+        <small style="background-color: #FFEF00; border: 2px solid;">{{article.Aricle_list_tags}}</small>
+      </a>
     {% endfor %}
-
-</form>
+</div> 
 {% endblock content %}

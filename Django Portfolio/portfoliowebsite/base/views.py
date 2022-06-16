@@ -33,6 +33,6 @@ def pbiProjectPage(request):
                     b = PBI_articles(Article_title=data['Article_title'], Article_date=data['Article_date'], Article_short_text=data['Article_short_text'], 
                                                                     Aricle_list_tags=data['Aricle_list_tags'], Article_post_link=data['Article_post_link'])
                     b.save()
-    pbi_articles = PBI_articles.objects.all().order_by('-id')[:10]
+    pbi_articles = PBI_articles.objects.all().order_by('-id')[:12]
     context = {'pbi_articles':pbi_articles}
     return render(request, 'base/pbiProject.html', context)
