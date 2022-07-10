@@ -6,6 +6,7 @@ from django.db.models import Max
 from django.http import HttpResponse, HttpResponseRedirect
 from .models import Project, Skill, PBI_articles
 from .scripts.PBIscraper import get_last_article_name, collect_data, collect_data_increment
+import pandas as pd 
 
 # Create your views here.
 def homePage(request):

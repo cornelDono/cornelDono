@@ -41,3 +41,11 @@ class PBI_articles(models.Model):
 
     def __str__(self) -> str:
         return self.name
+
+class Articles_perYear(models.Model):
+    year = models.IntegerField(primary_key=True)
+    amount_articles = models.IntegerField()
+
+    class Meta:
+        managed = False
+        db_table = 'Articles_perYear'

@@ -83,8 +83,6 @@ def collect_data(): #Collect all data from PBI Forum
         print(f'https://powerbi.microsoft.com/en-us/blog/?page={i}')
         s = requests.Session()
         response = s.get(url=f'https://powerbi.microsoft.com/en-us/blog/?page={i}', headers=headers)
-        # with open('index.html', 'r', encoding='utf-8') as file:
-        #     response = file.read()
         soup = BeautifulSoup(response.text, 'lxml')
         section = soup.find('div', class_='column large-7')
         posts = section.findAll(class_='post')
@@ -122,8 +120,6 @@ def collect_data_increment(last_article_name): # Collect only new data from PBI 
     while i < pages:
         s = requests.Session()
         response = s.get(url=f'https://powerbi.microsoft.com/en-us/blog/?page={i}', headers=headers)
-        # with open('index.html', 'r', encoding='utf-8') as file:
-        #     response = file.read()
         soup = BeautifulSoup(response.text, 'lxml')
         section = soup.find('div', class_='column large-7')
         posts = section.findAll(class_='post')
